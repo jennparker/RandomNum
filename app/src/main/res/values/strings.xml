@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RandomNums</string>
+    <string name="action_settings">Settings</string>
+    <string name="generate_button_text">Generate!</string>
+    <string name="max_hint_text">Max</string>
+    <string name="min_hint_text">Min</string>
+</resources>
