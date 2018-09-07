@@ -15,9 +15,9 @@
         android:hint="@string/min_hint_text"
         android:inputType="number"
         android:textSize="@dimen/edittext_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/max_field"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/generate_button"
+        app:layout_constraintLeft_toLeftOf="@+id/generate_button"
+        app:layout_constraintRight_toLeftOf="@+id/max_field"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -28,9 +28,9 @@
         android:inputType="number"
         android:textSize="@dimen/edittext_text_size"
         app:layout_constraintBottom_toTopOf="@+id/generate_button"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/min_field" />
+        app:layout_constraintLeft_toRightOf="@+id/min_field"
+        app:layout_constraintRight_toRightOf="@+id/generate_button"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/generate_button"
