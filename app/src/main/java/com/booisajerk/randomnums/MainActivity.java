@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity {
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String minString = (minValue.getText() != null)
-                        ? minValue.getText().toString() : MIN_VALUE;
+                String minString = (minValue.getText().toString().equals(""))
+                        ? MIN_VALUE : minValue.getText().toString();
 
                 int minVal = Integer.parseInt(minString);
 
-                String maxString = (maxValue.getText() != null)
-                        ? maxValue.getText().toString() : MAX_VALUE;
+                String maxString = (maxValue.getText().toString().equals(""))
+                        ? MAX_VALUE : maxValue.getText().toString();
 
                 int maxVal = Integer.parseInt(maxString);
 
