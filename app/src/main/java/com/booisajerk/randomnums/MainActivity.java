@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 final AlertDialog dialog = new AlertDialog.Builder(MainActivity.this).create();
 
                 dialog.setTitle(getString(R.string.dialog_title));
-                dialog.setMessage(getString(R.string.dialog_description) + calculateRandomNumber(minVal, maxVal));
+                dialog.setMessage(String.format(getResources().getString(R.string.dialog_description), calculateRandomNumber(minVal, maxVal)));
                 dialog.setButton(AlertDialog.BUTTON_NEUTRAL, getString(android.R.string.ok), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

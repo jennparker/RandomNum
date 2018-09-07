@@ -6,5 +6,5 @@
     <string name="min_hint_text">Min</string>
 
     <string name="dialog_title">Voila</string>
-    <string name="dialog_description">Your random number is </string>
+    <string name="dialog_description">Your random number is %d</string>
 </resources>
