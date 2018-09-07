@@ -2,54 +2,52 @@ package com.booisajerk.randomnums;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button generateButton;
-    EditText minValue, maxValue;
+    private EditText minValue, maxValue;
+
+    private static final String MIN_VALUE = "0";
+    private static final String MAX_VALUE = "100";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        minValue = (EditText) findViewById(R.id.min_field);
-        maxValue = (EditText) findViewById(R.id.max_field);
-        generateButton = (Button) findViewById(R.id.generate_button);
+        minValue = findViewById(R.id.min_field);
+        maxValue = findViewById(R.id.max_field);
+        Button generateButton = findViewById(R.id.generate_button);
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String minString = (minValue.getText() != null)
-                        ? minValue.getText().toString() : "0";
+                        ? minValue.getText().toString() : MIN_VALUE;
 
                 int minVal = Integer.parseInt(minString);
 
                 String maxString = (maxValue.getText() != null)
-                        ? maxValue.getText().toString() : "100";
+                        ? maxValue.getText().toString() : MAX_VALUE;
 
                 int maxVal = Integer.parseInt(maxString);
 
                 final AlertDialog dialog = new AlertDialog.Builder(MainActivity.this).create();
 
-                dialog.setTitle("Voila");
-                dialog.setMessage("Your random number is " + calculateRandomNumber(minVal, maxVal));
-                dialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                dialog.setTitle(getString(R.string.dialog_title));
+                dialog.setMessage(getString(R.string.dialog_description) + calculateRandomNumber(minVal, maxVal));
+                dialog.setButton(AlertDialog.BUTTON_NEUTRAL, getString(android.R.string.ok), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialog.dismiss();
@@ -83,9 +81,8 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    static int calculateRandomNumber(int min, int max) {
-        int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
+    private static int calculateRandomNumber(int min, int max) {
 
-        return randomNum;
+        return ThreadLocalRandom.current().nextInt(min, max + 1);
     }
 }

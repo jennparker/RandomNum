@@ -4,4 +4,7 @@
     <string name="generate_button_text">Generate!</string>
     <string name="max_hint_text">Max</string>
     <string name="min_hint_text">Min</string>
+
+    <string name="dialog_title">Voila</string>
+    <string name="dialog_description">Your random number is </string>
 </resources>
